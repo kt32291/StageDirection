@@ -1,4 +1,7 @@
 class SubmissionsController < ApplicationController
+  before_filter :authenticate_actor!, only: [:create]
+  before_filter :authenticate_associate!, only: [:index, :destroy]
+
   def create
     @submission = Submission.new(submission_params)
 
@@ -11,6 +14,12 @@ class SubmissionsController < ApplicationController
         format.json { render json: @submission.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def index
+  end
+
+  def destroy
   end
 
   private
