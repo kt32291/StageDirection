@@ -15,9 +15,29 @@ companies = [
 
 ]
 
+new_companies = [
+  { name: "Porchlight", description: "As the leader in music theatre in Chicago, Porchlight Music Theatre has staged 57 stellar productions including five world premieres and six Chicago premieres - earning growing die-hard audiences and national critical acclaim.  Porchlight is known for its bold, edgy and intimate music theatre, offering audiences the drama, the song and the dance “up close” from Chicago and Broadway’s brightest music theatre talent." , phone: "386-801-5016" , email: "casting@porchlight.com" , logo: "porchlight.jpg" },
+  { name: "Light Opera Works", description: "LIGHT OPERA WORKS is a resident professional not-for-profit music theater in Evanston, Illinois, founded in 1980. The mission is to produce musical theater from a variety of world traditions. In its 32 seasons, LIGHT OPERA WORKS has presented more than 100 productions on its 1,000-seat Mainstage, 250-seat Second Stage and 450 seat Concert Stage venues." , phone: "312-929-381", email: "casting@lightoperaworks.com", logo: "lightopera.jpg" },
+  { name: "Theatre At The Center", description: "Theatre at the Center (TATC) is the resident theatre at the Center for the Performing Arts. Its 5 Mainstage productions attract an audience of over 50,000 annually. TATC operates on an Actors Equity contract and regularly employs the finest performers in the greater Chicago area for its year-round seasons of classic American musicals, new plays and comedies. Other programming includes 4 Theatre for Young Audiences productions annually, theatre classes for young people and special events, including music, comedy and limited run theatrical works." , phone: "386-679-2423", email: "casting@tatc.com", logo: "tatc.jpg" }
+]
+
 if Company.count == 0
 
   companies.each do |company|
+    c = Company.new
+    c.name = company[:name]
+    c.description = company[:description]
+    c.phone = company[:phone]
+    c.email = company[:email]
+    c.logo = company[:logo]
+    c.save
+  end
+
+end
+
+if Company.count == 3
+
+  new_companies.each do |company|
     c = Company.new
     c.name = company[:name]
     c.description = company[:description]
