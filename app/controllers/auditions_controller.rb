@@ -5,6 +5,8 @@ class AuditionsController < ApplicationController
   # GET /auditions.json
   def index
     @auditions = Audition.all
+
+    @submission = Submission.new
   end
 
   # GET /auditions/1

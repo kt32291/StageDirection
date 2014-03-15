@@ -3,6 +3,7 @@
 <table>
   <thead>
     <tr>
+      <th></th>
       <th>Name</th>
       <th>Post date</th>
       <th>Audition date</th>
@@ -18,6 +19,17 @@
   <tbody>
     <% @auditions.each do |audition| %>
       <tr>
+        <td>
+          <% if actor_signed_in? %>
+            <%= form_for(@submission) do |f| %>
+              <%= f.hidden_field :actor_id, :value => current_actor.id %>
+              <%= f.hidden_field :audition_id, :value => audition.id %>
+              <%= f.submit %>
+            <% end %>
+          <% else %>
+            <button type="button"><%= link_to "Create Submission", new_actor_session_path %></button>
+          <% end %>
+        </td>
         <td><%= audition.name %></td>
         <td><%= audition.post_date %></td>
         <td><%= audition.audition_date %></td>

@@ -9,6 +9,9 @@
 <body>
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
+  <% if actor_signed_in? %>
+    <%= link_to "Sign Out", destroy_actor_session_path, method: 'delete' %>
+  <% end %>
 <%= yield %>
 
 </body>

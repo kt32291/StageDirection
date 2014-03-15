@@ -4,6 +4,7 @@ StageDirection::Application.routes.draw do
   devise_for :associates
   devise_for :actors
   resources :auditions
+  resources :submissions
 
   root 'auditions#index'
 
