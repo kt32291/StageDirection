@@ -1,0 +1,37 @@
+<h1>Listing auditions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Post date</th>
+      <th>Audition date</th>
+      <th>Description</th>
+      <th>Company</th>
+      <th>Equity</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @auditions.each do |audition| %>
+      <tr>
+        <td><%= audition.name %></td>
+        <td><%= audition.post_date %></td>
+        <td><%= audition.audition_date %></td>
+        <td><%= audition.description %></td>
+        <td><%= audition.company_id %></td>
+        <td><%= audition.equity %></td>
+        <td><%= link_to 'Show', audition %></td>
+        <td><%= link_to 'Edit', edit_audition_path(audition) %></td>
+        <td><%= link_to 'Destroy', audition, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Audition', new_audition_path %>

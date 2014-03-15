@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  post_date: 2014-03-15
+  audition_date: MyString
+  description: MyText
+  company_id: 1
+  equity: false
+
+two:
+  name: MyString
+  post_date: 2014-03-15
+  audition_date: MyString
+  description: MyText
+  company_id: 1
+  equity: false
