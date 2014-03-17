@@ -26,9 +26,10 @@
 </p>
 
 <p>
-  <strong>Equity:</strong>
-  <%= @audition.equity %>
+  <%= @audition.equity_status %>
 </p>
+
+<%= link_to "Submissions", submissions_url(audition_id: @audition.id) %>
 
           <% if actor_signed_in? %>
             <%= form_for(@submission) do |f| %>
@@ -36,6 +37,7 @@
               <%= f.hidden_field :audition_id, :value => audition.id %>
               <%= f.submit %>
             <% end %>
+          <% end %>
 
 <%= link_to 'Edit', edit_audition_path(@audition) %> |
 <%= link_to 'Back', auditions_path %>

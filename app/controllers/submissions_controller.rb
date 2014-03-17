@@ -1,6 +1,6 @@
 class SubmissionsController < ApplicationController
   before_filter :authenticate_actor!, only: [:create]
-  before_filter :authenticate_associate!, only: [:index, :destroy]
+  # before_filter :authenticate_associate!, only: [:index, :destroy]
 
   def create
     @submission = Submission.new(submission_params)
@@ -17,6 +17,8 @@ class SubmissionsController < ApplicationController
   end
 
   def index
+    @audition = Audition.find_by(id: params[:audition_id])
+    @actors = @audition.actors
   end
 
   def destroy

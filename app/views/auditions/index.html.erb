@@ -9,7 +9,6 @@
       <th>Audition date</th>
       <th>Description</th>
       <th>Company</th>
-      <th>Equity</th>
       <th></th>
       <th></th>
       <th></th>
@@ -30,13 +29,12 @@
             <button type="button"><%= link_to "Create Submission", new_actor_session_path %></button>
           <% end %>
         </td>
-        <td><%= audition.name %></td>
+        <td><%= link_to audition.name, audition %></td>
         <td><%= audition.post_date %></td>
         <td><%= audition.audition_date %></td>
         <td><%= audition.description %></td>
-        <td><%= audition.company_id %></td>
-        <td><%= audition.equity %></td>
-        <td><%= link_to 'Show', audition %></td>
+        <td><%= link_to audition.company.name, audition.company %></td>
+        <td><%= audition.equity_status %></td>
         <td><%= link_to 'Edit', edit_audition_path(audition) %></td>
         <td><%= link_to 'Destroy', audition, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

@@ -1,0 +1,19 @@
+<h1>Listing Submitted Actors</h1>
+<h2>For <%= @audition.name %></h2>
+
+
+<% @actors.each do |actor| %>
+
+<%= actor.first_name %> <%= actor.last_name %>
+<br />
+<%= actor.equity %>
+<br />
+Height: <%= actor.height %>
+<br />
+Weight: <%= actor.weight %>
+<br />
+Hair: <%= actor.hair %>
+<br />
+Eyes: <%= actor.eyes %>
+
+<% end %>
