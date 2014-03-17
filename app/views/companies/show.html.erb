@@ -20,10 +20,16 @@
   <%= @company.email %>
 </p>
 
+<%= image_tag @company.logo %>
+
 <p>
-  <strong>Logo:</strong>
-  <%= image_tag @company.logo %>
+  <strong>Auditions:</strong>
+  <% @auditions.each do |audition| %>
+    <h2><%= link_to audition.name, audition %></h2>
+    <p><%= audition.description %></p>
+  <% end %>
 </p>
+
 
 <%= link_to 'Edit', edit_company_path(@company) %> |
 <%= link_to 'Back', companies_path %>
