@@ -10,4 +10,5 @@ class Audition < ActiveRecord::Base
       return "Non-Equity"
     end
   end
+
 end

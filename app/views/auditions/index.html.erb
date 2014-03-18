@@ -1,39 +1,57 @@
-<h1>Listing auditions</h1>
+<div class="nav">
+  <ul>
+    <li>Home</li>
+    <li>About</li>
+    <li>Affiliated Companies</li>
+    <li>Sign Up</li>
+  </ul>
+</div>
 
-<table>
-  <thead>
-    <tr>
-      <th></th>
-      <th>Name</th>
-      <th>Post date</th>
-      <th>Audition date</th>
-      <th>Description</th>
-      <th>Company</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+<div class="container">
+<div class="banner">
+  <div class="photo">
+    <%= image_tag 'CSDlogo.png' %>
+  </div>
+</div>
 
-  <tbody>
-    <% @auditions.each do |audition| %>
-      <tr>
-        <td>
-          <% if actor_signed_in? %>
-            <%= form_for(@submission) do |f| %>
-              <%= f.hidden_field :actor_id, :value => current_actor.id %>
-              <%= f.hidden_field :audition_id, :value => audition.id %>
-              <%= f.submit %>
-            <% end %>
-          <% else %>
-            <button type="button"><%= link_to "Create Submission", new_actor_session_path %></button>
-          <% end %>
-        </td>
-        <td><%= link_to audition.name, audition %></td>
-        <td><%= audition.post_date %></td>
-        <td><%= audition.audition_date %></td>
-        <td><%= audition.description %></td>
-        <td><%= link_to audition.company.name, audition.company %></td>
+
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+  <% if actor_signed_in? %>
+    <%= link_to "Sign Out", destroy_actor_session_path, method: 'delete' %>
+  <% end %>
+
+
+<div class="audition_counter">
+  <ul>
+    <li class="active">All Auditions<span><%= Audition.count %></span></li>
+    <li>Equity Auditions<span><%= @equity_count %></span></li>
+    <li>Non-Equity Auditions<span><%= @non_eq_count %></span></li>
+  </ul>
+</div>
+
+
+<div class="audition_list">
+<h1>Auditions</h1>
+  <% @auditions.each do |audition| %>
+    <% if actor_signed_in? %>
+      <%= form_for(@submission) do |f| %>
+        <%= f.hidden_field :actor_id, :value => current_actor.id %>
+        <%= f.hidden_field :audition_id, :value => audition.id %>
+        <h2><%= f.submit %><%= link_to audition.name, audition %>: <%= link_to audition.company.name, audition.company %></h2>
+      <% end %>
+    <% else %>
+      <h2><button type="button"><%= link_to "Create Submission", new_actor_session_path %></button><%= link_to audition.name, audition %>: <%= link_to audition.company.name, audition.company %></h2>
+    <% end %>
+    <% if audition.equity == true %>
+      <h3 class="eq"><i class="fa fa-star"></i> Equity</h3>
+    <% else %>
+      <h3 class="eq"><i class="fa fa-star-o"></i> Non-Equity</h3>
+    <% end %>
+
+    <h3>Audition Date: <%= audition.audition_date %></h3>
+        <p><%= audition.description %></p>
+
         <td><%= audition.equity_status %></td>
         <td><%= link_to 'Edit', edit_audition_path(audition) %></td>
         <td><%= link_to 'Destroy', audition, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -41,7 +59,8 @@
     <% end %>
   </tbody>
 </table>
-
+</div>
 <br>
 
 <%= link_to 'New Audition', new_audition_path %>
+</div>

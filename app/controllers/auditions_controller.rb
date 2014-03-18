@@ -5,7 +5,8 @@ class AuditionsController < ApplicationController
   # GET /auditions.json
   def index
     @auditions = Audition.all
-
+    @equity_count = Audition.where(equity: true).count
+    @non_eq_count = Audition.where(equity: false).count
     @submission = Submission.new
   end
 
