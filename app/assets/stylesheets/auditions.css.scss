@@ -73,6 +73,7 @@ a {
           text-align: right;
           a {
             color: $accent_color;
+            font-family: 'Signika Negative', sans-serif;
           }
         }
       }
@@ -97,7 +98,7 @@ a {
 }
 
 .audition_counter {
-  margin-top: 10px;
+  // margin-top: 10px;
   border: 1px solid lightgrey;
   border-radius: 5px;
   background: white;
@@ -117,12 +118,12 @@ a {
         border-bottom: none;
       }
       &.active {
-        font-weight: bold;
+        font-family: 'Signika Negative', sans-serif;
       }
       span {
         float: right;
         color: white;
-        font-weight: bold;
+        font-family: 'Signika Negative', sans-serif;
         background: gray;
         margin-right: 8px;
         padding: 2px 8px;
@@ -143,6 +144,7 @@ a {
   h1 {
     margin-bottom: 0px;
     margin-top: 0px;
+    font-family: 'Signika Negative', sans-serif;
 
   }
   .eqstatus {
@@ -151,8 +153,10 @@ a {
     h3 {
       &.eq {
         color: $accent_color;
+        font-family: 'Signika Negative', sans-serif;
         margin-top: 0px;
         font-size: 10pt;
+        font-weight: bolder;
       }
     }
   }
@@ -160,19 +164,20 @@ a {
     &.date {
       @include offset(1);
       margin-top: 0px;
-
+      font-family: 'Signika Negative', sans-serif;
     }
   }
   form {
     input[type="submit"] {
       @include columnify(1);
       font-size: 12pt;
+      font-family: 'Gafata', sans-serif;
       color: white;
       background: $accent_color;
       border: 2px solid $accent_color;
       border-radius: 5px;
       position: relative;
-      bottom: 5px;
+      bottom: 3px;
       &:hover {
         background: lightgray;
         border: 2px solid lightgray;
@@ -191,7 +196,7 @@ a {
       border: 2px solid $accent_color;
       border-radius: 5px;
       position: relative;
-      bottom: 5px;
+      bottom: 3px;
       a {
        color: white;
         font-size: 12pt;
@@ -218,9 +223,9 @@ a {
         margin-left: 0px;
         color: black;
         a {
-          color: black;
+          color: $accent_color;
           &:hover {
-            color: $accent_color;
+            color: black;
           }
         }
       }

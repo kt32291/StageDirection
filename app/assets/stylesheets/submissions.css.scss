@@ -20,6 +20,10 @@ $accent_color: rgb(0, 135, 204);
 .submission_list {
   @include columnify(6);
   float: left;
+  h1 {
+    font-family: 'Signika Negative', sans-serif;
+    margin-top: 0px;
+  }
   .oneactor {
     @include columnify(3);
     display: inline-block;
@@ -38,14 +42,14 @@ $accent_color: rgb(0, 135, 204);
     .actorstats {
       @include offset(1);
       h2 {
-        font-weight: bold;
-        font-size: 14px;
+        font-family: 'Signika Negative', sans-serif;
+        font-size: 16px;
         margin-bottom: 0px;
       }
       p {
         margin: 0px;
         color: $accent_color;
-        font-weight: bold;
+        font-family: 'Signika Negative', sans-serif;
       }
       table {
         border-collapse: collapse;
@@ -54,7 +58,7 @@ $accent_color: rgb(0, 135, 204);
           td {
             @include columnify(1);
             &.key {
-              font-weight: bold;
+              font-family: 'Signika Negative', sans-serif;
             }
             &.value {
               text-align: right;
