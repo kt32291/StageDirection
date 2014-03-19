@@ -15,14 +15,36 @@
     <li>About</li>
     <li><%= link_to 'Affiliated Companies', companies_url %></li>
     <% if actor_signed_in? %>
-      <li><%= link_to "Sign Out", destroy_actor_session_path, method: 'delete' %></li>
+      <li>
+        <%= link_to "Sign Out", destroy_actor_session_path, method: 'delete' %>
+        <ul>
+          <li>Hello, <%= link_to current_actor.first_name, edit_actor_registration_path %></li>
+          <li><%= notice %></li>
+          <li><%= alert %></li>
+        </ul>
+      </li>
     <% else %>
-      <li><%= link_to 'Sign In', new_actor_session_path %></li>
+      <li>
+        <%= link_to 'Sign In', new_actor_session_path %>
+        <ul>
+          <li><%= notice %></li>
+          <li><%= alert %></li>
+        </ul>
+      </li>
     <% end %>
   </ul>
 </div>
 
+<div class="container">
+<div class="banner">
+  <div class="photo">
+    <%= image_tag 'CSDlogo.png' %>
+  </div>
+</div>
+
 <%= yield %>
+
+</div>
 
 </body>
 </html>

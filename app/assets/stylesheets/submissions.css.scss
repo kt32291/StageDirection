@@ -1,0 +1,67 @@
+$max_width: 960px;
+$gutter_width: 20px;
+$col_count: 8;
+$gutter_count: $col_count - 1;
+$total_gutter_width: $gutter_count * $gutter_width;
+
+$col_width: ($max_width - $total_gutter_width) / $col_count;
+
+
+$accent_color: rgb(0, 135, 204);
+
+@mixin columnify($num_cols) {
+    width: $col_width * $num_cols + $gutter_width * ($num_cols - 1);
+}
+
+@mixin offset($num_cols) {
+    margin-left: ($col_width + $gutter_width) * $num_cols;
+}
+
+.submission_list {
+  @include columnify(6);
+  float: left;
+  .oneactor {
+    @include columnify(3);
+    display: inline-block;
+    background: white;
+    margin-right: 15px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px lightgray;
+    img {
+      float: left;
+      height: 175px;
+      border-radius: 10px 0px 0px 10px;
+    }
+    &:nth-of-type(even) {
+      margin-right: 0px;
+    }
+    .actorstats {
+      @include offset(1);
+      h2 {
+        font-weight: bold;
+        font-size: 14px;
+        margin-bottom: 0px;
+      }
+      p {
+        margin: 0px;
+        color: $accent_color;
+        font-weight: bold;
+      }
+      table {
+        border-collapse: collapse;
+        tr {
+          border-bottom: 1px solid lightgray;
+          td {
+            @include columnify(1);
+            &.key {
+              font-weight: bold;
+            }
+            &.value {
+              text-align: right;
+            }
+          }
+        }
+      }
+    }
+  }
+}

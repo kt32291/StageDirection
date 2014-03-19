@@ -18,6 +18,7 @@ class SubmissionsController < ApplicationController
 
   def index
     @audition = Audition.find_by(id: params[:audition_id])
+    @submissions = @audition.submissions
     @actors = @audition.actors
   end
 

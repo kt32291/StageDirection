@@ -6,6 +6,6 @@ class Actor::ParameterSanitizer < Devise::ParameterSanitizer
     default_params.permit(:email, :password, :first_name, :last_name, :equity, :height, :weight, :headshot, :resume, :gender, :hair, :eyes)
   end
   def account_update
-    default_params.permit(:email, :password, :first_name, :last_name, :equity, :height, :weight, :headshot, :resume, :gender, :hair, :eyes)
+    default_params.permit(:email, :password, :current_password, :first_name, :last_name, :equity, :height, :weight, :headshot, :resume, :gender, :hair, :eyes)
   end
 end

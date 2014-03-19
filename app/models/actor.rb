@@ -6,4 +6,6 @@ class Actor < ActiveRecord::Base
 
   has_many :submissions
   has_many :auditions, through: :submissions
+
+  mount_uploader :headshot, HeadshotUploader
 end

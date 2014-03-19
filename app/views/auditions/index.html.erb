@@ -1,15 +1,3 @@
-
-
-<div class="container">
-<div class="banner">
-  <div class="photo">
-    <%= image_tag 'CSDlogo.png' %>
-  </div>
-</div>
-
-
-
-
 <div class="audition_counter">
   <ul>
     <li class="active">All Auditions<span><%= Audition.count %></span></li>
@@ -20,9 +8,6 @@
 
 
 <div class="audition_list">
-
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
 
 <h1>Auditions</h1>
   <% @auditions.each do |audition| %>
@@ -47,6 +32,4 @@
     <p><%= audition.description %></p>
   </div>
     <% end %>
-</div>
-
 </div>

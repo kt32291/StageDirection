@@ -43,6 +43,11 @@
     <%= f.select :eyes, "<option>Blue</option><option>Brown</option><option>Hazel</option><option>Green</option><option>Gray</option>".html_safe %>
   </div>
 
+  <div>
+    <%= f.label :headshot %><br>
+    <%= f.file_field :headshot %>
+  </div>
+
 
   <div><%= f.submit "Sign up" %></div>
 <% end %>

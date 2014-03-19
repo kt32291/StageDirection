@@ -1,19 +1,49 @@
-<h1>Listing Submitted Actors</h1>
-<h2>For <%= @audition.name %></h2>
+<div class="container">
+
+  <div class="audition_counter">
+    <ul>
+      <li class="active">All Submissions<span><%= @actors.count %></span></li>
+      <li>Female<span><%= @actors.where(gender: "Female").count %></span></li>
+      <li>Male<span><%= @actors.where(gender: "Male").count %></span></li>
+    </ul>
+  </div>
+
+  <div class="submission_list">
+    <h1>Submitted Actors for <%= @audition.name %></h1>
 
 
-<% @actors.each do |actor| %>
-
-<%= actor.first_name %> <%= actor.last_name %>
-<br />
-<%= actor.equity %>
-<br />
-Height: <%= actor.height %>
-<br />
-Weight: <%= actor.weight %>
-<br />
-Hair: <%= actor.hair %>
-<br />
-Eyes: <%= actor.eyes %>
-
-<% end %>
+    <% @actors.each do |actor| %>
+      <div class="oneactor">
+        <%= image_tag actor.headshot %>
+        <div class="actorstats">
+          <h2><%= actor.first_name %> <%= actor.last_name %></h2>
+          <% if actor.equity == "Equity" %>
+            <p class="actoreq"><i class="fa fa-star"></i> <%= actor.equity %></p>
+          <% elsif actor.equity == "EMC" %>
+            <p class="actoreq"><i class="fa fa-star-half-o"></i> <%= actor.equity %></p>
+          <% else %>
+            <p class="actoreq"><i class="fa fa-star-o"></i> <%= actor.equity %></p>
+          <% end %>
+          <br />
+          <table>
+            <tr>
+              <td class="key">Height:</td>
+              <td class="value"><%= actor.height %></td>
+            </tr>
+            <tr>
+              <td class="key">Weight:</td>
+              <td class="value"><%= actor.weight %> lbs</td>
+            </tr>
+            <tr>
+              <td class="key">Hair:</td>
+              <td class="value"><%= actor.hair %></td>
+            </tr>
+            <tr>
+              <td class="key">Eyes:</td>
+              <td class="value"><%= actor.eyes %></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    <% end %>
+  </div>

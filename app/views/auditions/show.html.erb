@@ -34,7 +34,7 @@
           <% if actor_signed_in? %>
             <%= form_for(@submission) do |f| %>
               <%= f.hidden_field :actor_id, :value => current_actor.id %>
-              <%= f.hidden_field :audition_id, :value => audition.id %>
+              <%= f.hidden_field :audition_id, :value => params[:audition_id] %>
               <%= f.submit %>
             <% end %>
           <% end %>

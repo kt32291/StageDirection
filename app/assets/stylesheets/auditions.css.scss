@@ -55,9 +55,24 @@ a {
         margin-right: 0px;
         border-right: 1px solid lightgrey;
       }
-      &:hover {
-        a {
+      a {
+        &:hover {
           color: $accent_color;
+        }
+      }
+      ul {
+        position: absolute;
+        top: 40px;
+        li {
+          text-transform: none;
+          font-weight: bold;
+          display: block;
+          padding: 0px;
+          border-left: none;
+          text-align: right;
+          a {
+            color: $accent_color;
+          }
         }
       }
     }

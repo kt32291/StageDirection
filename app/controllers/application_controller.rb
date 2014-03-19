@@ -6,13 +6,8 @@ class ApplicationController < ActionController::Base
   def devise_parameter_sanitizer
     if resource_class == Actor
       Actor::ParameterSanitizer.new(Actor, :actor, params)
-    else
-      super
-    end
-    if resource_class == Associate
+    elsif resource_class == Associate
       Associate::ParameterSanitizer.new(Associate, :associate, params)
-    else
-      super
     end
   end
 
