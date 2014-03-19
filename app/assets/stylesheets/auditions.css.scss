@@ -216,6 +216,13 @@ a {
       span {
         font-size: 21pt;
         margin-left: 0px;
+        color: black;
+        a {
+          color: black;
+          &:hover {
+            color: $accent_color;
+          }
+        }
       }
     }
   }
