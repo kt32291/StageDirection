@@ -5,7 +5,7 @@ CarrierWave.configure do |config|
     :aws_secret_access_key  => ENV["AWS_SECRET_ACCESS_KEY"],
     :region                 => 'us-east-1'
   }
-  config.fog_directory  = 'accomplishit-assets'
+  config.fog_directory  = 'stagedirection-assets'
   config.storage = :fog
   # see https://github.com/jnicklas/carrierwave#using-amazon-s3
   # for more optional configuration
