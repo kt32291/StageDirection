@@ -81,6 +81,7 @@ a {
 }
 
 .audition_counter {
+  margin-top: 10px;
   border: 1px solid lightgrey;
   border-radius: 5px;
   background: white;
@@ -156,6 +157,11 @@ a {
       border-radius: 5px;
       position: relative;
       bottom: 2px;
+      &:hover {
+        background: lightgray;
+        border: 2px solid lightgray;
+        color: black;
+      }
     }
   }
 
