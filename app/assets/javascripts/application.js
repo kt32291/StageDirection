@@ -14,3 +14,28 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+$(function() {
+
+  $('.equityyes').click(function (){
+    $('.false').hide();
+    $('.true').show();
+    $('.active').removeClass('active');
+    $(this).addClass('active');
+  });
+
+  $('.equityno').click(function (){
+    $('.true').hide();
+    $('.false').show();
+    $('.active').removeClass('active');
+    $(this).addClass('active');
+  });
+
+  $('.all').click(function (){
+    $('.true').show();
+    $('.false').show();
+    $('.active').removeClass('active');
+    $(this).addClass('active');
+  });
+
+});

@@ -1,8 +1,8 @@
 <div class="audition_counter">
   <ul>
-    <li class="active">All Auditions<span><%= Audition.count %></span></li>
-    <li>Equity Auditions<span><%= @equity_count %></span></li>
-    <li>Non-Equity Auditions<span><%= @non_eq_count %></span></li>
+    <li class="all active">All Auditions<span><%= Audition.count %></span></li>
+    <li class="equityyes">Equity Auditions<span><%= @equity_count %></span></li>
+    <li class="equityno">Non-Equity Auditions<span><%= @non_eq_count %></span></li>
   </ul>
 </div>
 
@@ -11,7 +11,7 @@
 
 <h1>Auditions</h1>
   <% @auditions.each do |audition| %>
-  <div class="oneaudition">
+  <div class="oneaudition <%= audition.equity %>">
     <% if actor_signed_in? %>
       <%= form_for(@submission) do |f| %>
         <%= f.hidden_field :actor_id, :value => current_actor.id %>
