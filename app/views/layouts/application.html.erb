@@ -13,7 +13,7 @@
   <ul>
     <li><%= link_to '<i class="fa fa-home"></i> Home'.html_safe, root_url %></li>
     <li>About</li>
-    <li>Affiliated Companies</li>
+    <li><%= link_to 'Affiliated Companies', companies_url %></li>
     <% if actor_signed_in? %>
       <li><%= link_to "Sign Out", destroy_actor_session_path, method: 'delete' %></li>
     <% else %>

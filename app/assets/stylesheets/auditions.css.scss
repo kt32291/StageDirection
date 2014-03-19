@@ -192,6 +192,7 @@ a {
       @include columnify(5);
       margin-left: 20px;
       a {
+        color: gray;
         &:hover {
           color: black;
         }
