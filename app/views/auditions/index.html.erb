@@ -1,11 +1,4 @@
-<div class="nav">
-  <ul>
-    <li>Home</li>
-    <li>About</li>
-    <li>Affiliated Companies</li>
-    <li>Sign Up</li>
-  </ul>
-</div>
+
 
 <div class="container">
 <div class="banner">
@@ -15,11 +8,6 @@
 </div>
 
 
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
-  <% if actor_signed_in? %>
-    <%= link_to "Sign Out", destroy_actor_session_path, method: 'delete' %>
-  <% end %>
 
 
 <div class="audition_counter">
@@ -32,35 +20,33 @@
 
 
 <div class="audition_list">
+
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
+
 <h1>Auditions</h1>
   <% @auditions.each do |audition| %>
+  <div class="oneaudition">
     <% if actor_signed_in? %>
       <%= form_for(@submission) do |f| %>
         <%= f.hidden_field :actor_id, :value => current_actor.id %>
         <%= f.hidden_field :audition_id, :value => audition.id %>
-        <h2><%= f.submit %><%= link_to audition.name, audition %>: <%= link_to audition.company.name, audition.company %></h2>
+        <h2><%= f.submit "Submit" %><span><%= link_to audition.name, audition %>: <%= link_to audition.company.name, audition.company %></span></h2>
       <% end %>
     <% else %>
-      <h2><button type="button"><%= link_to "Create Submission", new_actor_session_path %></button><%= link_to audition.name, audition %>: <%= link_to audition.company.name, audition.company %></h2>
+      <h2><button type="button"><%= link_to '<i class="fa fa-envelope-o"></i> Submit'.html_safe, new_actor_session_path %></button><span><%= link_to audition.name, audition %>: <%= link_to audition.company.name, audition.company %></span></h2>
     <% end %>
-    <% if audition.equity == true %>
-      <h3 class="eq"><i class="fa fa-star"></i> Equity</h3>
-    <% else %>
-      <h3 class="eq"><i class="fa fa-star-o"></i> Non-Equity</h3>
+    <div class="eqstatus">
+      <% if audition.equity == true %>
+        <h3 class="eq"><i class="fa fa-star"></i> Equity</h3>
+      <% else %>
+        <h3 class="eq"><i class="fa fa-star-o"></i> Non-Equity</h3>
+      <% end %>
+    </div>
+    <h3 class="date">Audition Date: <%= audition.audition_date %></h3>
+    <p><%= audition.description %></p>
+  </div>
     <% end %>
-
-    <h3>Audition Date: <%= audition.audition_date %></h3>
-        <p><%= audition.description %></p>
-
-        <td><%= audition.equity_status %></td>
-        <td><%= link_to 'Edit', edit_audition_path(audition) %></td>
-        <td><%= link_to 'Destroy', audition, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
 </div>
-<br>
 
-<%= link_to 'New Audition', new_audition_path %>
 </div>
