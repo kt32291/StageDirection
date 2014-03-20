@@ -43,6 +43,8 @@ $(function() {
     $('.Female').show();
     $('.activegen').removeClass('activegen');
     $(this).addClass('activegen');
+    $('.chosengen').removeClass('chosengen');
+    $('.Female').addClass('chosengen');
   });
 
   $('.male').click(function (){
@@ -50,6 +52,8 @@ $(function() {
     $('.Male').show();
     $('.activegen').removeClass('activegen');
     $(this).addClass('activegen');
+    $('.chosengen').removeClass('chosengen');
+    $('.Male').addClass('chosengen');
   });
 
   $('.allgen').click(function (){
@@ -57,12 +61,15 @@ $(function() {
     $('.Female').show();
     $('.activegen').removeClass('activegen');
     $(this).addClass('activegen');
+    $('.chosengen').removeClass('chosengen');
+    $('.Female').addClass('chosengen');
+    $('.Male').addClass('chosengen');
   });
 
   $('.equity').click(function (){
     $('.Non-Equity').hide();
     $('.EMC').hide();
-    $('.Equity').show();
+    $('.Equity.chosengen').show();
     $('.activeeq').removeClass('activeeq');
     $(this).addClass('activeeq');
   });
@@ -70,7 +77,7 @@ $(function() {
   $('.emc').click(function (){
     $('.Equity').hide();
     $('.Non-Equity').hide();
-    $('.EMC').show();
+    $('.EMC.chosengen').show();
     $('.activeeq').removeClass('activeeq');
     $(this).addClass('activeeq');
   });
@@ -78,15 +85,15 @@ $(function() {
   $('.nonequity').click(function (){
     $('.Equity').hide();
     $('.EMC').hide();
-    $('.Non-Equity').show();
+    $('.Non-Equity.chosengen').show();
     $('.activeeq').removeClass('activeeq');
     $(this).addClass('activeeq');
   });
 
   $('.alleq').click(function (){
-    $('.Equity').show();
-    $('.EMC').show();
-    $('.Non-Equity').show();
+    $('.Equity.chosengen').show();
+    $('.EMC.chosengen').show();
+    $('.Non-Equity.chosengen').show();
     $('.activeeq').removeClass('activeeq');
     $(this).addClass('activeeq');
   });
