@@ -38,4 +38,57 @@ $(function() {
     $(this).addClass('active');
   });
 
+  $('.female').click(function (){
+    $('.Male').hide();
+    $('.Female').show();
+    $('.activegen').removeClass('activegen');
+    $(this).addClass('activegen');
+  });
+
+  $('.male').click(function (){
+    $('.Female').hide();
+    $('.Male').show();
+    $('.activegen').removeClass('activegen');
+    $(this).addClass('activegen');
+  });
+
+  $('.allgen').click(function (){
+    $('.Male').show();
+    $('.Female').show();
+    $('.activegen').removeClass('activegen');
+    $(this).addClass('activegen');
+  });
+
+  $('.equity').click(function (){
+    $('.Non-Equity').hide();
+    $('.EMC').hide();
+    $('.Equity').show();
+    $('.activeeq').removeClass('activeeq');
+    $(this).addClass('activeeq');
+  });
+
+  $('.emc').click(function (){
+    $('.Equity').hide();
+    $('.Non-Equity').hide();
+    $('.EMC').show();
+    $('.activeeq').removeClass('activeeq');
+    $(this).addClass('activeeq');
+  });
+
+  $('.nonequity').click(function (){
+    $('.Equity').hide();
+    $('.EMC').hide();
+    $('.Non-Equity').show();
+    $('.activeeq').removeClass('activeeq');
+    $(this).addClass('activeeq');
+  });
+
+  $('.alleq').click(function (){
+    $('.Equity').show();
+    $('.EMC').show();
+    $('.Non-Equity').show();
+    $('.activeeq').removeClass('activeeq');
+    $(this).addClass('activeeq');
+  });
+
 });

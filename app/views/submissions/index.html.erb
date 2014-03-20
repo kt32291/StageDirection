@@ -2,9 +2,15 @@
 
   <div class="audition_counter">
     <ul>
-      <li class="active">All Submissions<span><%= @actors.count %></span></li>
-      <li>Female<span><%= @actors.where(gender: "Female").count %></span></li>
-      <li>Male<span><%= @actors.where(gender: "Male").count %></span></li>
+      <li class="activegen allgen">All Submissions<span><%= @actors.count %></span></li>
+      <li class="female">Female<span><%= @actors.where(gender: "Female").count %></span></li>
+      <li class="male">Male<span><%= @actors.where(gender: "Male").count %></span></li>
+    </ul>
+    <ul class="eqsearch">
+      <li class="activeeq alleq">All<span><%= @actors.count %></span></li>
+      <li class="equity">Equity<span><%= @actors.where(equity: "Equity").count %></span></li>
+      <li class="emc">EMC<span><%= @actors.where(equity: "EMC").count %></span></span></li>
+      <li class="nonequity">Non-Equity<span><%= @actors.where(equity: "Non-Equity").count %></span></span></li>
     </ul>
   </div>
 
@@ -13,7 +19,7 @@
 
 
     <% @actors.each do |actor| %>
-      <div class="oneactor">
+      <div class="oneactor <%= actor.gender %> <%= actor.equity %>">
         <%= image_tag actor.headshot %>
         <div class="actorstats">
           <h2><%= actor.first_name %> <%= actor.last_name %></h2>

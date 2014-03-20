@@ -99,16 +99,17 @@ a {
 
 .audition_counter {
   // margin-top: 10px;
-  border: 1px solid lightgrey;
-  border-radius: 5px;
-  background: white;
   @include columnify(2);
   float: left;
   margin-right: 18px;
   padding: 0px;
   ul {
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+    background: white;
     padding: 0px;
     margin: 0px;
+    margin-bottom: 15px;
     position: relative;
     li {
       list-style-type: none;
@@ -118,6 +119,12 @@ a {
         border-bottom: none;
       }
       &.active {
+        font-family: 'Signika Negative', sans-serif;
+      }
+      &.activegen {
+        font-family: 'Signika Negative', sans-serif;
+      }
+      &.activeeq {
         font-family: 'Signika Negative', sans-serif;
       }
       span {
@@ -130,6 +137,16 @@ a {
         border-radius: 10px;
         position: relative;
         bottom: 2px;
+      }
+    }
+    &.eqsearch {
+      li {
+        &:nth-of-type(3n) {
+          border-bottom: 1px solid lightgrey;
+        }
+        &:nth-of-type(4n) {
+          border-bottom: none;
+        }
       }
     }
   }
@@ -192,6 +209,7 @@ a {
     button {
       @include columnify(1);
       color: white;
+      font-family: 'Gafata', sans-serif;
       background: $accent_color;
       border: 2px solid $accent_color;
       border-radius: 5px;
