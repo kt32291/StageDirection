@@ -24,6 +24,15 @@
           <li><%= alert %></li>
         </ul>
       </li>
+    <% elsif associate_signed_in? %>
+      <li>
+        <%= link_to "Sign Out", destroy_associate_session_path, method: 'delete' %>
+        <ul>
+          <li>Hello, <%= link_to current_associate.name, edit_associate_registration_path %></li>
+          <li><%= notice %></li>
+          <li><%= alert %></li>
+        </ul>
+      </li>
     <% else %>
       <li>
         <%= link_to 'Sign In', new_actor_session_path %>

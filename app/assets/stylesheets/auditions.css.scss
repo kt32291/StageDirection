@@ -116,6 +116,9 @@ a {
       list-style-type: none;
       border-bottom: 1px solid lightgrey;
       padding: 8px;
+      &:hover {
+        cursor: pointer;
+      }
       &:nth-of-type(3n) {
         border-bottom: none;
       }
