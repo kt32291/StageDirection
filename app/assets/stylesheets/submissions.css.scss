@@ -28,8 +28,8 @@ $accent_color: rgb(0, 135, 204);
     @include columnify(3);
     display: inline-block;
     background: white;
-    margin-right: 13px;
-    margin-bottom: 15px;
+    margin-right: 6.5px;
+    margin-bottom: 12px;
     border-radius: 10px;
     border: 1px solid lightgray;
     // box-shadow: 2px 2px 2px lightgray;
@@ -38,9 +38,9 @@ $accent_color: rgb(0, 135, 204);
       height: 175px;
       border-radius: 8px 0px 0px 8px;
     }
-    &:nth-of-type(even) {
-      margin-right: 0px;
-    }
+    // &:nth-of-type(even) {
+    //   margin-right: 0px;
+    // }
     .actorstats {
       @include offset(1);
       h2 {

@@ -101,7 +101,8 @@ a {
   // margin-top: 10px;
   @include columnify(2);
   float: left;
-  margin-right: 18px;
+  margin-right: 12px;
+  // margin-left: 9px;
   padding: 0px;
   ul {
     border: 1px solid lightgrey;
@@ -109,7 +110,7 @@ a {
     background: white;
     padding: 0px;
     margin: 0px;
-    margin-bottom: 15px;
+    margin-bottom: 12px;
     position: relative;
     li {
       list-style-type: none;
