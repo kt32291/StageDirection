@@ -17,6 +17,12 @@
 
 $(function() {
 
+  $('.homesignin').click(function (){
+    $('.homesign').toggleClass('reveal');
+    $(this).toggleClass('down');
+  });
+
+
   $('.equityyes').click(function (){
     $('.false').hide();
     $('.true').show();

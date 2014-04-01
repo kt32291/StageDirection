@@ -11,41 +11,53 @@
 <body>
 
 <div class="nav">
-  <ul>
-    <li><%= link_to '<i class="fa fa-home"></i> Home'.html_safe, root_url %></li>
-    <li>About</li>
-    <li><%= link_to 'Affiliated Companies', companies_url %></li>
+  <ul class="mainnav">
+    <li class="navlink"><%= link_to '<i class="fa fa-home"></i> Home'.html_safe, root_url %></li>
+    <li class="navlink">About</li>
+    <li class="navlink"><%= link_to 'Affiliated Companies', companies_url %></li>
     <% if actor_signed_in? %>
-      <li>
+      <li class="navlink">
         <%= link_to "Sign Out", destroy_actor_session_path, method: 'delete' %>
-        <ul>
-          <li>Hello, <%= link_to current_actor.first_name, edit_actor_registration_path %></li>
-          <li><%= notice %></li>
-          <li><%= alert %></li>
-        </ul>
       </li>
     <% elsif associate_signed_in? %>
-      <li>
+      <li class="navlink">
         <%= link_to "Sign Out", destroy_associate_session_path, method: 'delete' %>
-        <ul>
-          <li>Hello, <%= link_to current_associate.name, edit_associate_registration_path %></li>
-          <li><%= notice %></li>
-          <li><%= alert %></li>
-        </ul>
       </li>
     <% else %>
-      <li>
-        <%= link_to 'Sign In', new_actor_session_path %>
-        <ul>
-          <li><%= notice %></li>
-          <li><%= alert %></li>
+      <li class="navlink"><span class="homesignin">
+        Sign In <i class="fa fa-chevron-down rotate"></i></span>
+        <ul class="homesign">
+          <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+          <li><%= f.label :email %><br />
+  <%= f.email_field :email, :autofocus => true %></li>
+          <li><%= f.label :password %><br />
+  <%= f.password_field :password %></li>
+          <% if devise_mapping.rememberable? -%>
+            <li><%= f.check_box :remember_me %> <%= f.label :remember_me %></li>
+          <% end -%>
+            <%= f.submit "Sign in" %>
+          <% end %>
+          <div class="actrlinks">
+            <%= render "actors/shared/links" %>
+          </div>
         </ul>
       </li>
     <% end %>
   </ul>
 </div>
 
+
+
 <div class="container">
+  <ul class="alertz">
+    <% if actor_signed_in? %>
+      <li>Hello, <%= link_to current_actor.first_name, edit_actor_registration_path %></li>
+    <% elsif associate_signed_in? %>
+      <li>Hello, <%= link_to current_associate.name, edit_associate_registration_path %></li>
+    <% end %>
+    <li><%= notice %></li>
+    <li><%= alert %></li>
+  </ul>
 <div class="banner">
   <div class="photo">
     <%= image_tag 'CSDlogo.png' %>
