@@ -14,7 +14,7 @@
   <ul class="mainnav">
     <li class="navlink"><%= link_to '<i class="fa fa-home"></i> Home'.html_safe, root_url %></li>
     <li class="navlink">About</li>
-    <li class="navlink"><%= link_to 'Affiliated Companies', companies_url %></li>
+    <li class="navlink"><%= link_to 'Casting Sign In', new_associate_session_path %></li>
     <% if actor_signed_in? %>
       <li class="navlink">
         <%= link_to "Sign Out", destroy_actor_session_path, method: 'delete' %>

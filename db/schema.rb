@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140315180114) do
+ActiveRecord::Schema.define(version: 20140402193043) do
 
   create_table "actors", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -71,6 +71,8 @@ ActiveRecord::Schema.define(version: 20140315180114) do
     t.boolean  "equity"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.date     "audition_start"
+    t.date     "audition_end"
   end
 
   create_table "companies", force: true do |t|
