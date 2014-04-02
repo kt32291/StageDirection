@@ -124,6 +124,15 @@ a {
 
 .alertz {
   float: right;
+  text-align: right;
+  font-family: 'Gafata', sans-serif;
+  font-weight: bold;
+  li {
+    list-style-type: none;
+    a {
+      color: $accent_color;
+    }
+  }
 }
 
 .banner {

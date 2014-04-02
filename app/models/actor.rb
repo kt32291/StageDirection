@@ -8,4 +8,5 @@ class Actor < ActiveRecord::Base
   has_many :auditions, through: :submissions
 
   mount_uploader :headshot, HeadshotUploader
+  mount_uploader :resume, ResumeUploader
 end
