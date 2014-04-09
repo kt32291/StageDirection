@@ -1,0 +1,49 @@
+// Place all the styles related to the actors controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+$max_width: 960px;
+$gutter_width: 20px;
+$col_count: 8;
+$gutter_count: $col_count - 1;
+$total_gutter_width: $gutter_count * $gutter_width;
+
+$col_width: ($max_width - $total_gutter_width) / $col_count;
+
+
+$accent_color: rgb(0, 135, 204);
+
+@mixin columnify($num_cols) {
+    width: $col_width * $num_cols + $gutter_width * ($num_cols - 1);
+}
+
+@mixin offset($num_cols) {
+    margin-left: ($col_width + $gutter_width) * $num_cols;
+}
+
+.showheadshot {
+  float: left;
+  margin-right: 13px;
+  @include columnify(2);
+  a {
+    @include columnify(2);
+    img {
+      width: inherit;
+      border: 1px solid lightgray;
+    }
+  }
+  p {
+    @include offset(1);
+    color: $accent_color;
+    a {
+      color: inherit;
+    }
+  }
+}
+
+iframe {
+  @include columnify(6);
+  float: left;
+  height: 900px;
+  margin-bottom: 20px;
+}

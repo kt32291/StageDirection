@@ -12,10 +12,13 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.fancybox
 //= require turbolinks
 //= require_tree .
 
 $(function() {
+
+  $(".fancybox").fancybox();
 
   $('.homesignin').click(function (){
     $('.homesign').toggleClass('reveal');

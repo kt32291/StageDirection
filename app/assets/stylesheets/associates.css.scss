@@ -1,0 +1,39 @@
+
+.container {
+  .associatesignin {
+    h2 {
+      font-size: 24pt;
+    }
+    width: 300px;
+    margin: 0px auto;
+    text-align: center;
+    position: relative;
+    background: white;
+    padding: 10px 30px;
+    border-radius: 5px;
+    border: 1px solid lightgray;
+    form {
+      margin: 0px auto;
+      text-align: left;
+      input[type='email'], input[type='password'] {
+        width: 100%;
+        background: none;
+        border: none;
+        outline-width: 0;
+        line-height: 30px;
+        font-size: 14pt;
+        border-bottom: 2px solid lightgray;
+      }
+      .check {
+        text-align: center;
+      }
+      input[type='submit'] {
+        float: right;
+        vertical-align: bottom;
+      }
+    }
+    a {
+      float: left;
+    }
+  }
+}

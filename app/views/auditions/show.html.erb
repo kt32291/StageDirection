@@ -1,33 +1,30 @@
 <p id="notice"><%= notice %></p>
 
+<div class="auditionshow">
+
+<%= image_tag @audition.company.logo %>
+
+<div class="auditioncontent">
 <p>
-  <strong>Name:</strong>
-  <%= @audition.name %>
+  <%= @audition.name %> : <%= link_to @audition.company.name, @audition.company %>
 </p>
 
 <p>
-  <strong>Post date:</strong>
-  <%= @audition.post_date.strftime("%B %e, %Y") %>
+  Posted <%= time_ago_in_words(@audition.created_at) %> ago
 </p>
 
-<p>
-  <strong>Audition date:</strong>
-  <%= @audition.audition_date %>
-</p>
+    <% if @audition.equity == true %>
+        <h3 class="eq"><i class="fa fa-star"></i> Equity</h3>
+    <% else %>
+        <h3 class="eq"><i class="fa fa-star-o"></i> Non-Equity</h3>
+    <% end %>
 
 <p>
-  <strong>Description:</strong>
+Audition Date: <%= @audition.audition_start.strftime("%D") %> - <%= @audition.audition_end.strftime("%D") %>
+<p>
   <%= @audition.description %>
 </p>
-
-<p>
-  <strong>Company:</strong>
-  <%= @audition.company.name %>
-</p>
-
-<p>
-  <%= @audition.equity_status %>
-</p>
+</div>
 
 <%= link_to "Submissions", submissions_url(audition_id: @audition.id) %>
 
@@ -39,5 +36,5 @@
             <% end %>
           <% end %>
 
-<%= link_to 'Edit', edit_audition_path(@audition) %> |
-<%= link_to 'Back', auditions_path %>
+</div>
+

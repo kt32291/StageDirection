@@ -2,7 +2,11 @@ StageDirection::Application.routes.draw do
   resources :companies
 
   devise_for :associates
+
+
   devise_for :actors
+  resources :actors, :only => [:show]
+
   resources :auditions
   resources :submissions
 

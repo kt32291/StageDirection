@@ -1,17 +1,26 @@
-<h2>Sign in</h2>
+<div class="container">
+<div class="associatesignin">
+<h2>Casting Sign In</h2>
+<p>This is for theatre companies who have been verified to use this site. If you wish to register your theatre company so your casting associates can use our service, please contact me at Katharine322@gmail.com</p>
 
 <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, :autofocus => true %></div>
+  <div>
+  <%= f.email_field :email, :autofocus => true %><br />
+  <%= f.label :email %>
+  </div>
 
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
+  <div>
+  <%= f.password_field :password %><br />
+  <%= f.label :password %>
+  </div>
 
   <% if devise_mapping.rememberable? -%>
-    <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
+    <div class="check"><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
   <% end -%>
 
   <div><%= f.submit "Sign in" %></div>
 <% end %>
 
 <%= render "associates/shared/links" %>
+</div>
+</div>

@@ -72,6 +72,7 @@ a {
         @include columnify(2);
         top: 35px;
         background: white;
+        z-index: 100;
         border-radius: 5px;
         border: 1px solid lightgrey;
         display: none;
@@ -136,11 +137,18 @@ a {
 }
 
 .banner {
-  margin-top: 15px;
   .photo {
     margin: 0px;
+    margin-bottom: 40px;
+    padding: 0px;
     img {
-      width: 550px;
+      width: 950px;
+      margin: 0px auto;
+    }
+    p {
+      text-align: center;
+      margin: 5px;
+      font-size: 14pt;
     }
   }
 }
@@ -184,7 +192,7 @@ a {
         color: white;
         font-family: 'Signika Negative', sans-serif;
         background: gray;
-        margin-right: 8px;
+        margin-right: 2px;
         padding: 2px 8px;
         border-radius: 10px;
         position: relative;
@@ -210,6 +218,8 @@ a {
   margin-right: 0px;
   padding: 0px;
   position: relative;
+  height: 100%;
+  overflow: scroll;
   h1 {
     margin-bottom: 0px;
     margin-top: 0px;
@@ -305,8 +315,19 @@ a {
 
 .oneaudition {
   border-top: 1px solid lightgray;
-  margin-top: 35px;
+  margin-top: 0px;
   p {
+    @include offset(1);
+  }
+}
+
+.auditionshow {
+  img {
+    @include columnify(1);
+    margin-right: 20px;
+    float: left;
+  }
+  .auditioncontent {
     @include offset(1);
   }
 }

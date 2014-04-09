@@ -8,8 +8,6 @@
 
 
 <div class="audition_list">
-
-<h1>Auditions</h1>
   <% @auditions.each do |audition| %>
   <div class="oneaudition <%= audition.equity %>">
     <% if actor_signed_in? %>
@@ -28,7 +26,7 @@
         <h3 class="eq"><i class="fa fa-star-o"></i> Non-Equity</h3>
       <% end %>
     </div>
-    <h3 class="date">Audition Date: <%= audition.audition_date %></h3>
+    <h3 class="date">Audition Date: <%= audition.audition_start.strftime("%D") %> - <%= audition.audition_end.strftime("%D") %></h3>
     <p><%= audition.description %></p>
   </div>
     <% end %>

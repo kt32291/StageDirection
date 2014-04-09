@@ -1,0 +1,12 @@
+<div class="showheadshot">
+  <a class="fancybox" rel="group" href="<%= @actor.headshot %>"><%= image_tag @actor.headshot %></a>
+          <% if @actor.equity == "Equity" %>
+            <p class="actoreq"><i class="fa fa-star"></i> <%= @actor.equity %></p>
+          <% elsif @actor.equity == "EMC" %>
+            <p class="actoreq"><i class="fa fa-star-half-o"></i> <%= @actor.equity %></p>
+          <% else %>
+            <p class="actoreq"><i class="fa fa-star-o"></i> <%= @actor.equity %></p>
+          <% end %>
+  <p class="email"><%= mail_to "#{@actor.email}", '<i class="fa fa-envelope"></i> Email Actor'.html_safe %></p>
+</div>
+<iframe src="<%= @actor.resume %>#view=fit"></iframe>
