@@ -2,15 +2,32 @@
 
 <div class="auditionshow">
 
+<div class="showsubmit">
 <%= image_tag @audition.company.logo %>
 
+
+          <% if actor_signed_in? %>
+            <%= form_for(@submission) do |f| %>
+              <%= f.hidden_field :actor_id, :value => current_actor.id %>
+              <%= f.hidden_field :audition_id, :value => params[:audition_id] %>
+              <%= f.submit '✔︎ Submit', :confirm => "Submit for this audition?" %>
+            <% end %>
+    <% else %>
+      <button type="button"><%= link_to '✔︎ Submit'.html_safe, new_actor_session_path %></button>
+    <% end %>
+    <% if associate_signed_in? && @audition.company.id == associate.company.id  %>
+  <button type="button"><%= link_to "Submissions", submissions_url(audition_id: @audition.id) %></button>
+<% end %>
+</div>
+
+
 <div class="auditioncontent">
-<p>
-  <%= @audition.name %> : <%= link_to @audition.company.name, @audition.company %>
+<p class="audheader">
+  <%= link_to @audition.company.name, @audition.company %>: <span class="auditionname"><%= @audition.name %></span>
 </p>
 
 <p>
-  Posted <%= time_ago_in_words(@audition.created_at) %> ago
+  <span>Posted <%= time_ago_in_words(@audition.created_at) %> ago</span>
 </p>
 
     <% if @audition.equity == true %>
@@ -20,21 +37,14 @@
     <% end %>
 
 <p>
-Audition Date: <%= @audition.audition_start.strftime("%D") %> - <%= @audition.audition_end.strftime("%D") %>
+<span><i class="fa fa-calendar-o"></i> Audition Date:</span> <%= @audition.audition_start.strftime("%D") %> - <%= @audition.audition_end.strftime("%D") %>
 <p>
   <%= @audition.description %>
 </p>
 </div>
 
-<%= link_to "Submissions", submissions_url(audition_id: @audition.id) %>
 
-          <% if actor_signed_in? %>
-            <%= form_for(@submission) do |f| %>
-              <%= f.hidden_field :actor_id, :value => current_actor.id %>
-              <%= f.hidden_field :audition_id, :value => params[:audition_id] %>
-              <%= f.submit %>
-            <% end %>
-          <% end %>
+
 
 </div>
 

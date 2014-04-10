@@ -7,6 +7,12 @@
           <% else %>
             <p class="actoreq"><i class="fa fa-star-o"></i> <%= @actor.equity %></p>
           <% end %>
+  <% if associate_signed_in? %>
   <p class="email"><%= mail_to "#{@actor.email}", '<i class="fa fa-envelope"></i> Email Actor'.html_safe %></p>
+  <% end %>
+
+  <% if actor_signed_in? && current_actor.id == @actor.id %>
+    <button type="button"><%= link_to "Edit Profile", edit_actor_registration_path %></button>
+  <% end %>
 </div>
 <iframe src="<%= @actor.resume %>#view=fit"></iframe>

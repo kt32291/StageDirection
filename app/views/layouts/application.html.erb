@@ -51,9 +51,9 @@
 <div class="container">
   <ul class="alertz">
     <% if actor_signed_in? %>
-      <li>Hello, <%= link_to current_actor.first_name, edit_actor_registration_path %></li>
+      <li>Hello, <%= link_to current_actor.first_name, current_actor %></li>
     <% elsif associate_signed_in? %>
-      <li>Hello, <%= link_to current_associate.name, edit_associate_registration_path %></li>
+      <li>Hello, <%= link_to current_associate.name, current_associate %></li>
     <% end %>
     <li><%= notice %></li>
     <li><%= alert %></li>
@@ -61,7 +61,7 @@
 <div class="banner">
   <div class="photo">
     <%= image_tag 'CSDlogo.png' %>
-    <p>Connecting actors with auditions and theatres with actors, all in one place</p>
+    <p>Bringing theatre artists together to make great art</p>
   </div>
 </div>
 

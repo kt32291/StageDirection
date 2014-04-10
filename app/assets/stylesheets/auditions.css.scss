@@ -322,12 +322,83 @@ a {
 }
 
 .auditionshow {
+  width: 800px;
+  background: white;
+  padding: 15px;
+  border-radius: 5px;
+  border: 1px solid lightgray;
+  margin: 0px auto;
+  .auditioncontent {
+    @include offset(1);
+    p {
+      span {
+        font-family: 'Signika Negative', sans-serif;
+        &.auditionname {
+          color: $accent_color;
+        }
+      }
+      &.audheader {
+        font-size: 24pt;
+        a {
+          &:hover {
+            color: gray;
+          }
+        }
+      }
+    }
+    .eq {
+      color: $accent_color;
+      font-family: 'Signika Negative', sans-serif;
+    }
+  }
+}
+
+.showsubmit {
+  float: left;
+  @include columnify(1);
   img {
     @include columnify(1);
     margin-right: 20px;
-    float: left;
+    border: 1px solid gray;
   }
-  .auditioncontent {
-    @include offset(1);
+  form {
+    input[type="submit"] {
+      @include columnify(1);
+      font-size: 12pt;
+      font-family: 'Gafata', sans-serif;
+      color: white;
+      background: $accent_color;
+      border: 2px solid $accent_color;
+      border-radius: 5px;
+      position: relative;
+      bottom: 3px;
+      &:hover {
+        background: lightgray;
+        border: 2px solid lightgray;
+        color: black;
+      }
+    }
   }
+    button {
+      width: inherit;
+      float: left;
+      color: white;
+      font-family: 'Gafata', sans-serif;
+      background: $accent_color;
+      border: 2px solid $accent_color;
+      border-radius: 5px;
+      position: relative;
+      bottom: 3px;
+      a {
+       color: white;
+        font-size: 12pt;
+      }
+      &:hover {
+        background: lightgray;
+        border: 2px solid lightgray;
+        a {
+          color: black;
+        }
+      }
+    }
 }
