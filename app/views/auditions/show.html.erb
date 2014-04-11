@@ -15,7 +15,7 @@
     <% else %>
       <button type="button"><%= link_to '✔︎ Submit'.html_safe, new_actor_session_path %></button>
     <% end %>
-    <% if associate_signed_in? && @audition.company.id == associate.company.id  %>
+    <% if associate_signed_in? && @audition.company.id == current_associate.company.id  %>
   <button type="button"><%= link_to "Submissions", submissions_url(audition_id: @audition.id) %></button>
 <% end %>
 </div>
