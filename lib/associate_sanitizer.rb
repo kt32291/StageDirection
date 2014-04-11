@@ -1,6 +1,6 @@
 class Associate::ParameterSanitizer < Devise::ParameterSanitizer
   def sign_in
-    default_params.permit(:email, :password)
+    default_params.permit(:email, :password, :remember_me)
   end
   def sign_up
     default_params.permit(:email, :password, :name, :title, :company_id)

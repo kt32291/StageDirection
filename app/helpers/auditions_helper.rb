@@ -1,4 +1,5 @@
 module AuditionsHelper
+
   def resource_name
     :actor
   end

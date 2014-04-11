@@ -52,8 +52,9 @@
   <ul class="alertz">
     <% if actor_signed_in? %>
       <li>Hello, <%= link_to current_actor.first_name, current_actor %></li>
-    <% elsif associate_signed_in? %>
-      <li>Hello, <%= link_to current_associate.name, current_associate %></li>
+    <% end %>
+    <% if associate_signed_in? %>
+      <li>Hello, <%= link_to current_associate.name, root_url %></li>
     <% end %>
     <li><%= notice %></li>
     <li><%= alert %></li>

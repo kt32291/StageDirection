@@ -42,11 +42,13 @@
   <div>
     <%= f.label :headshot %><br>
     <%= f.file_field :headshot %>
+    <%= f.hidden_field :headshot_cache %>
   </div>
 
   <div>
     <%= f.label :resume %><br>
     <%= f.file_field :resume %>
+    <%= f.hidden_field :resume_cache %>
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
